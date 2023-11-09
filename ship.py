@@ -116,6 +116,17 @@ class ship:
             else:
                 k+=1
         return valid
+    
+    def getOpenNeighbors(self, ind):
+        neighbors = ship.getNeighbors(ind)
+        valid,k = self.getInbounds(neighbors),0
+        while k in range(len(valid)):
+            r,c = valid[k]
+            if self.data[r][c] != 0:
+                del valid[k]
+            else:
+                k+=1
+        return valid
         
     #Takes in index which is a tuple that represents a cell. Checks to see if it has exactly one open neighbor
     def checkNeighborsClosed(self, Ind):
