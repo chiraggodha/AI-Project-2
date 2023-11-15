@@ -232,10 +232,20 @@ class ship:
 
 # Adds cells to self.closed
     def populateClosedCells(self):
+        self.closed = set()
         for i in range(len(self.data)):
             for j in range(len(self.data[0])):
                 if self.data[i][j]==1:
                     self.closed.add((i,j))
+
+    def populateOpenCells(self):
+        self.open = set()
+        for i in range(len(self.data)):
+            for j in range(len(self.data[0])):
+                if self.data[i][j]==0:
+                    self.open.add((i,j))
+                    
+        
     
     #we might be able to get rid of this function
     def checkBotInFire(self):
